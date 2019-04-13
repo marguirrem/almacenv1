@@ -1,5 +1,6 @@
 package org.marlonaguirre.almacen.core.model;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,8 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="factura")
-public class Factura {
-    
+public class Factura implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

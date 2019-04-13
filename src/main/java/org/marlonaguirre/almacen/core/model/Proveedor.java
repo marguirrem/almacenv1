@@ -6,10 +6,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="proveedor")
+@NamedQueries(
+        {@NamedQuery(name="Proveedor.findAll",query="select p from Proveedor p"),
+         @NamedQuery(name="Proveedor.findAllOrderByNit",query="select p from Proveedor p order by p.nit"),
+         @NamedQuery(name= "Proveedor.findByCodigoProveedor",query="select p from Proveedor p where p.codigoProveedor = ?1")//orden de parametro que envies
+        })
 public class Proveedor implements Serializable {
 
     @Id
@@ -93,8 +100,5 @@ public class Proveedor implements Serializable {
     public void setContactoPrincipal(String contactoPrincipal) {
         this.contactoPrincipal = contactoPrincipal;
     }
-    
-    
-    
     
 }
