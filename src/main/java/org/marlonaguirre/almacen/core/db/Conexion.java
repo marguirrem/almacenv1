@@ -23,7 +23,7 @@ public class Conexion {
     }
 
     public static Conexion getInstancia() {
-        if (instancia != null) {
+        if (instancia == null) {
             instancia = new Conexion();
         }
         return instancia;
@@ -64,8 +64,9 @@ public class Conexion {
     }
 
     public List<?> findAll(Class<?> elemento) {
-        int posicion = elemento.getTypeName().indexOf(".");
-        String clase = elemento.getTypeName().substring(0, posicion);
+        int posicion = elemento.getTypeName().lastIndexOf(".");
+        String clase = elemento.getTypeName().substring(posicion + 1, elemento.getTypeName().length());
+        System.out.println(clase);
         return em.createNamedQuery(clase.concat(".findAll")).getResultList();
     }
 

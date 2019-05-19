@@ -1,14 +1,17 @@
-package org.marlonaguirre.almacen.core;
+package org.marlonaguirre.almacen.core.controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import org.marlonaguirre.almacen.core.Principal;
 
-public class FXMLController implements Initializable {
+public class VentanaPrincipalController implements Initializable {
     
+    private Principal principal;
     @FXML
     private Label label;
     
@@ -21,5 +24,13 @@ public class FXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
+
+    public void setPrincipal(Principal principal){
+        this.principal = principal;
+    }
+
+    public void mostrarVentanaProveedores() throws IOException{
+        this.principal.mostrarProveedores();
+    }
 }

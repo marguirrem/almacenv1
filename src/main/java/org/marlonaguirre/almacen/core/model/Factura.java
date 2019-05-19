@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 
-@Entity
+//@Entity
 @Table(name="factura")
 public class Factura implements Serializable{
     
